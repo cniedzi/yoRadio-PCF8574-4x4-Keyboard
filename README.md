@@ -1,6 +1,7 @@
 # yoRadio PCF8574 4x4 Keyboard suport
 
-This mod enables the use of 16 buttons to handle favorite stations in yoRadio using a PCF8574 expander. The favorite stations are stored in the ESP32 flash memory. A short button press retrieves the station (if already stored), while a long press (>1 sec) saves the current station to the slot assigned to that button.
+This mod enables the use of 16 buttons to handle favorite stations in yoRadio using a PCF8574 expander. The favorite stations are stored in the ESP32 flash memory.
+<br>A **short button press** retrieves the station (if already stored), while a **long press** (>1 sec) saves the current station to the slot assigned to that button.
 <br><br>
 The required connections are shown in the file "PCF8574 4x4 Keyboard.jpg".
 <br><br>
@@ -16,7 +17,8 @@ IMPORTANT:
 <br><br>Enjoy!
 <br>
 ************************************************************************************************
-Ten mod umożliwia wykorzystanie 16 przycisków do obsługi ulubionych stacji w yoRadio za pomocą ekspandera PCF8574. Ulubione stacje są przechowywane w pamięci flash procesora ESP32. Krótkie naciśnięcie przycisku wywołuje stację (jeśli została wcześniej zapisana), natomiast długie naciśnięcie (>1 sek.) zapisuje aktualną stację w slocie przypisanym do danego przycisku.
+Ten mod umożliwia wykorzystanie 16 przycisków do obsługi ulubionych stacji w yoRadio za pomocą ekspandera PCF8574. Ulubione stacje są przechowywane w pamięci flash procesora ESP32.
+<br>**Krótkie naciśnięcie przycisku** wywołuje stację (jeśli została wcześniej zapisana), natomiast **długie naciśnięcie** (>1 sek.) zapisuje aktualną stację w slocie przypisanym do danego przycisku.
 <br><br>
 Wymagane połączenia zostały przedstawione w pliku "PCF8574 4x4 Keyboard.jpg".
 <br><br>
