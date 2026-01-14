@@ -3,7 +3,7 @@
 This mod enables the use of 16 buttons to handle favorite stations in yoRadio using a PCF8574 expander. The favorite stations are stored in the ESP32 flash memory.
 <br>A **short button press** retrieves the station (if already stored), while a **long press** (>1 sec) saves the current station to the slot assigned to that button.
 <br><br>
-The required connections are shown in the file "PCF8574 4x4 Keyboard.jpg".
+The required connections are shown in the files: "PCF8574 4x4 Keyboard.jpg" and "Wiring PCF8574 4x4 Keyboard".
 <br><br>
 IMPORTANT:
 <br>- If the project uses an external RTC, the I2C's SDA and SCL pins for both the expander and the RTC can be the same (recommended).
@@ -20,7 +20,7 @@ IMPORTANT:
 Ten mod umożliwia wykorzystanie 16 przycisków do obsługi ulubionych stacji w yoRadio za pomocą ekspandera PCF8574. Ulubione stacje są przechowywane w pamięci flash procesora ESP32.
 <br>**Krótkie naciśnięcie przycisku** wywołuje stację (jeśli została wcześniej zapisana), natomiast **długie naciśnięcie** (>1 sek.) zapisuje aktualną stację w slocie przypisanym do danego przycisku.
 <br><br>
-Wymagane połączenia zostały przedstawione w pliku "PCF8574 4x4 Keyboard.jpg".
+Wymagane połączenia zostały przedstawione w plikach: "PCF8574 4x4 Keyboard.jpg" i "Wiring PCF8574 4x4 Keyboard".
 <br><br>
 WAŻNE:
 <br>- Jeżeli projekt wykorzystuje zewnętrzny RTC, piny I2C SDA i SCL ekspandera oraz RTC mogą być takie same (zalecane).
