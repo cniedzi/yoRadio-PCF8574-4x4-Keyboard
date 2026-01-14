@@ -18,19 +18,19 @@ QueueHandle_t playerQueue;
 
 /****************  EXTENDER ****************/
 // PCF8574 4x4 keyboard Mod by C.Niedzinski 2026
-// ver. 1.00
+// ver. 1.01
 //
 // In Arduino IDE/Pioarduino add I2CKeyPad library by RobTillaart (https://github.com/RobTillaart/I2CKeyPad)
 
 #include "I2CKeyPad.h"
 #include <Preferences.h>
 
-#define BUTTONS_COUNT 16 // number of buttons
 #define longPush 1000 // ms
 
 
 //--------------------------------------------------------------------------
 // KEYBOARD CONFIGURATION - You have to set the below definitions according to your configuration !!!
+#define BUTTONS_COUNT 16 // number of buttons
 #define PCF857x_ADDRESS 0x20 // PCF857x I2C address
 #define PCF857x_SDA 32 // PCF857x I2C SDA Pin - the same I2C pins can be used for both the expander and the RTC
 #define PCF857x_SCL 33 // PCF857x I2C SCL Pin - the same I2C pins can be used for both the expander and the RTC
@@ -58,9 +58,8 @@ unsigned long pushButtonStart;
 void handleExtender() {
         uint8_t key = keyPad.getKey();
 
-        if (key >= 0 && key <= 15) { // Button pushed
+        if (key >= 0 && key <= BUTTONS_COUNT - 1) { // Button pushed
           if (lastButtonPushed == I2C_KEYPAD_NOKEY) {
-            Serial.println(key);
             pushButtonStart = millis();
             lastButtonPushed = key;
           }
@@ -68,7 +67,6 @@ void handleExtender() {
         else if (key == I2C_KEYPAD_NOKEY) {
           if (lastButtonPushed != I2C_KEYPAD_NOKEY) { // Button released
             unsigned long pushButtonTime = millis() - pushButtonStart;
-            Serial.println(pushButtonTime);
             uint8_t temp[BUTTONS_COUNT * 2] = {0};
             int offset = lastButtonPushed * 2;
             if (pushButtonTime < longPush) { // SHORT Push - reading station number from flash memory and connection
