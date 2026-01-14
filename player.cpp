@@ -19,7 +19,7 @@ QueueHandle_t playerQueue;
 
 /****************  EXTENDER ****************/
 // PCF8574 4x4 keyboard Mod by C.Niedzinski 2026
-// ver. 1.01
+// ver. 1.02
 //
 // In Arduino IDE/Pioarduino add I2CKeyPad library by RobTillaart (https://github.com/RobTillaart/I2CKeyPad)
 
@@ -58,7 +58,6 @@ unsigned long pushButtonStart;
 
 void handleExtender() {
         uint8_t key = keyPad.getKey();
-
         if (key >= 0 && key <= BUTTONS_COUNT - 1) { // Button pushed
           if (lastButtonPushed == I2C_KEYPAD_NOKEY) {
             pushButtonStart = millis();
@@ -94,7 +93,6 @@ void handleExtender() {
             lastButtonPushed = I2C_KEYPAD_NOKEY;
           }
         }
-        delay(1);
 }
 /****************  EXTENDER ****************/
 
