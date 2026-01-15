@@ -12,7 +12,7 @@ IMPORTANT:
 **Installation**:
 <br>1. In Arduino IDE/Pioarduino add add I2CKeyPad library by RobTillaart (https://github.com/RobTillaart/I2CKeyPad).
 <br>2. Replace the "player.cpp" file in the "yoradio-main\yoRadio\src\core" directory with the provided one, or manually add the three required sections to the appropriate parts of your "player.cpp" file. Each section to be added is delimited by lines: /**************** EXTENDER ****************/ in the provided "player.cpp" file.
-<br>3. In the above mentioned file "player.cpp" set the expander parameters according to your configuration (section: EXPANDER CONFIGURATION)
+<br>3. In the above mentioned file "player.cpp" set the expander parameters according to your configuration (section: KEYBOARD CONFIGURATION)
 <br>4. Build & upload
 <br><br>Enjoy!
 <br>
@@ -29,6 +29,6 @@ WAŻNE:
 **Instalacja**:
 <br>1. W Arduino IDE/Pioarduino dodaj bibliotekę I2CKeyPad autorstwa RobTillaart (https://github.com/RobTillaart/I2CKeyPad).
 <br>2. Zastąp plik "player.cpp" w katalogu yoradio-main\yoRadio\src\core plikiem z tego repozytorium, lub ręcznie dodaj trzy wymagane sekcje w odpowiednich miejscach pliku "player.cpp". Każda z ww. sekcji jest ograniczona liniami: /**************** EXTENDER ****************/ w dostarczonym pliku "player.cpp".
-<br>3. W wyżej wymienionym pliku „player.cpp” ustaw parametry ekspandera zgodnie ze swoją konfiguracją (sekcja: EXPANDER CONFIGURATION).
+<br>3. W wyżej wymienionym pliku „player.cpp” ustaw parametry ekspandera zgodnie ze swoją konfiguracją (sekcja: KEYBOARD CONFIGURATION).
 <br>4. Skompiluj i wgraj (Build & upload)
 <br><br>Miłego korzystania!
