@@ -19,7 +19,7 @@ QueueHandle_t playerQueue;
 
 /****************  EXTENDER ****************/
 // PCF8574 4x4 keyboard Mod by C.Niedzinski 2026
-// ver. 1.02
+// ver. 1.03
 //
 // In Arduino IDE/Pioarduino add I2CKeyPad library by RobTillaart (https://github.com/RobTillaart/I2CKeyPad)
 
@@ -70,20 +70,22 @@ void handleExtender() {
             uint8_t temp[BUTTONS_COUNT * 2] = {0};
             int offset = lastButtonPushed * 2;
             if (pushButtonTime < longPush) { // SHORT Push - reading station number from flash memory and connection
-              if (extenderPreferences.getBytes("Buttons", temp, BUTTONS_COUNT * 2) == BUTTONS_COUNT * 2) {
-                uint16_t station = (static_cast<uint16_t>(temp[offset + 0])) | (static_cast<uint16_t>(temp[offset + 1]) << 8);
-                if (station > 0 && station <= config.playlistLength()) {
-                  Serial.printf("===>>> BUTTON #%d - Retrieved station #%d <<<===\n", lastButtonPushed, station);
-                  config.lastStation(station);
-                  player.sendCommand({PR_PLAY, config.lastStation()});
+              if (config.lastStation() != 0) {
+                if (extenderPreferences.getBytes("Buttons", temp, BUTTONS_COUNT * 2) == BUTTONS_COUNT * 2) {
+                  uint16_t station = (static_cast<uint16_t>(temp[offset + 0])) | (static_cast<uint16_t>(temp[offset + 1]) << 8);
+                  if (station > 0 && station <= config.playlistLength()) {
+                    Serial.printf("===>>> BUTTON #%d - Retrieved station #%d <<<===\n", lastButtonPushed, station);
+                    config.lastStation(station);
+                    player.sendCommand({PR_PLAY, config.lastStation()});
+                  }
                 }
+                else Serial.println("Stations not assigned");
               }
-              else Serial.println("Stations not assigned");
             }
             else { // LONG Push - saving station to flash memory
               uint16_t newStation = config.lastStation();
-              Serial.printf("===>>> BUTTON #%d - Saved station #%d <<<===\n", lastButtonPushed, newStation);
               if (newStation != 0) {
+                Serial.printf("===>>> BUTTON #%d - Saved station #%d <<<===\n", lastButtonPushed, newStation);
                 extenderPreferences.getBytes("Buttons", temp, BUTTONS_COUNT * 2);
                 temp[offset] = static_cast<uint8_t>(newStation & 0xFF);
                 temp[offset + 1] = static_cast<uint8_t>((newStation >> 8) & 0xFF);
